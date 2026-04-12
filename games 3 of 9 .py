@@ -161,10 +161,29 @@ def generar_combinacion_mastermind(longitud, colores_disponibles):
         
     
 def validar_movimiento_torre_ajedrez(self, desde_fila, desde_col, hasta_fila, hasta_col, tablero):
+    contador=0
 
 
+    if desde_fila == hasta_fila :
+        for j in range(min(desde_col, hasta_col) + 1, max(desde_col, hasta_col)):
+             
+            if tablero[desde_fila][j] != "-":
+                contador=contador+1
+    elif desde_col == hasta_col:  
+        
+        for i in range(min(desde_fila, hasta_fila) + 1, max(desde_fila, hasta_fila)):
+            if tablero[i][desde_col] != ".":
+                contador += 1
+    else:
+        print("movimiento diferente a horizontal o vertical")
+        
+            
+        if contador ==0:
+            print("movimiento aceptado")
 
-
+        else:
+            print("hay alguna figura interviniendo")
+                  
 
         """
         Valida si un movimiento de torre en ajedrez es legal.

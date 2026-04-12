@@ -17,7 +17,7 @@ class Geometria:
         Returns:
             float: Área del rectángulo
         """
-        
+        return base*altura
     
     def perimetro_rectangulo(self, base, altura):
         """
@@ -30,7 +30,7 @@ class Geometria:
         Returns:
             float: Perímetro del rectángulo
         """
-        
+        return 2(base*altura)
     
     def area_circulo(self, radio):
         """
@@ -42,7 +42,7 @@ class Geometria:
         Returns:
             float: Área del círculo
         """
-        
+        return math.pi* radio**2
     
     def perimetro_circulo(self, radio):
         """
@@ -54,6 +54,7 @@ class Geometria:
         Returns:
             float: Perímetro del círculo
         """
+        return 2*math.py*radio
         
     
     def area_triangulo(self, base, altura):
@@ -67,6 +68,7 @@ class Geometria:
         Returns:
             float: Área del triángulo
         """
+        return (base*altura)/2
         
     
     def perimetro_triangulo(self, lado1, lado2, lado3):
@@ -81,7 +83,7 @@ class Geometria:
         Returns:
             float: Perímetro del triángulo
         """
-        
+        return lado1+lado2+lado3
     
     def es_triangulo_valido(self, lado1, lado2, lado3):
         """
