@@ -14,10 +14,8 @@ class Logica:
         Returns:
             bool: Resultado de a AND b
         """
-        if a and b:
-            return True
-        else:
-            return False
+        return a and b 
+        
     
     def OR(self, a, b):
         """
@@ -30,10 +28,8 @@ class Logica:
         Returns:
             bool: Resultado de a OR b
         """
-        if a or b:
-            return True
-        else:
-            return False
+        return a or b 
+        
     
     def NOT(self, a):
         """
@@ -45,10 +41,7 @@ class Logica:
         Returns:
             bool: Resultado de NOT a
         """
-        if a:
-            return False
-        else:
-            return True
+        return not a
     
     def XOR(self, a, b):
         """
@@ -61,9 +54,8 @@ class Logica:
         Returns:
             bool: Resultado de a XOR b
         """
-        parte1 = self.AND(a, self.NOT(b))
-        parte2 = self.AND(self.NOT(a), b)
-        return self.OR(parte1, parte2)
+        return a != b
+        
     
     def NAND(self, a, b):
         """
@@ -76,7 +68,8 @@ class Logica:
         Returns:
             bool: Resultado de a NAND b
         """
-        return self.NOT(self.AND(a, b))
+        return not (a and b) 
+        
     
     def NOR(self, a, b):
         """
@@ -89,7 +82,8 @@ class Logica:
         Returns:
             bool: Resultado de a NOR b
         """
-        return self.NOT(self.OR(a, b))
+        return not (a or b)
+        
     
     def XNOR(self, a, b):
         """
@@ -102,7 +96,8 @@ class Logica:
         Returns:
             bool: Resultado de a XNOR b
         """
-        return self.NOT(self.XOR(a, b))
+        return not (a != b)
+        
     
     def implicacion(self, a, b):
         """
@@ -115,7 +110,7 @@ class Logica:
         Returns:
             bool: Resultado de la implicación
         """
-        return self.OR(self.NOT(a), b)
+        return (not a) or b
     
     def bi_implicacion(self, a, b):
         """
@@ -128,4 +123,4 @@ class Logica:
         Returns:
             bool: Resultado de la bi-implicación
         """
-        return self.NOT(self.XOR(a, b))
+        return not (a != b)
