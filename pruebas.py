@@ -1,28 +1,67 @@
-def suma_digitos(n):
+def es_cuadrado_magico(matriz):
         """
-        Calcula la suma de los dígitos de un número.
+        Verifica si una matriz es un cuadrado mágico (suma igual en filas, columnas y diagonales).
         
         Args:
-            n (int): Número para sumar sus dígitos
+            matriz (list): Lista de listas que representa una matriz cuadrada
             
         Returns:
-            int: La suma de los dígitos de n
+            bool: True si es un cuadrado mágico, False en caso contrario
         """
-
-        lista=[]
-        
-        for digito in str(n):
-            lista.append(int(digito))
+        #suma filas
         suma=0
-        print(lista)
-        for numeros in range(0,len(lista)):
-            suma=suma+lista[numeros]**3
+        anterior=0
+        for j in range(len(matriz)):
             
-        if n == suma:
-            print("si es numero anmstrong",suma)
-        else:
-            print("no es numero anmstrong",suma)
-             
+            suma=0
+            for i in matriz[j]:
+                suma=suma+i
+
+            if j ==0:
+                anterior=suma
+            elif suma !=anterior:
+                print("no es cuadrado magico")
+                break
+
+        print(suma)
+
+    
+    #suma columnas
+        suma1=0
+        anterior=0
+        for j in range(len(matriz[0])):
+            
+            suma1=0
+            for i in range(len(matriz)):
+
+                suma1=matriz[i][j]+suma1
+
+            if j ==0:
+                anterior=suma1
+            elif suma1 !=anterior:
+                print("no es cuadrado magico")
+                break
+
+        print(suma1)
+        suma2=0
+        for i in range(len(matriz)):
+            suma2= suma2+ matriz[i][i]
+        print(suma2)
 
 
-suma_digitos(0)
+        if suma1==suma==suma2:
+            print("son cuadrado magico")
+
+
+            
+        
+
+        
+
+
+
+es_cuadrado_magico([
+    [8, 1, 6],
+    [3, 5, 7],
+    [4, 9, 2]
+])
