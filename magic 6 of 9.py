@@ -94,7 +94,7 @@ class Magic:
                 suma+=i
         return suma == n
     
-    def triangulo_pascal(self, filas):
+    def triangulo_pascal(filas):
         """
         Genera las primeras n filas del triángulo de Pascal.
         
@@ -109,14 +109,16 @@ class Magic:
             fila=[1]
 
             if triangulo:
+                fila_anterior= triangulo[-1]
+                for j in range(len(fila_anterior)-1):
+                    fila.append(fila_anterior[j]+fila_anterior[j+1])
+                fila.append(1)
                 triangulo.append(fila)
-
             else:
-                triangulo.append(fila)   
-                
+                triangulo.append(fila)
+        print(triangulo)      
         
-        
-    def factorial(self, n):
+    def factorial(n):
         """
         Calcula el factorial de un número.
         
@@ -126,9 +128,14 @@ class Magic:
         Returns:
             int: El factorial de n
         """
-        
+        factorial=1
+        for i in range (n,1,-1):
+            factorial = factorial * i 
+        print(factorial)
     
-    def mcd(self, a, b):
+
+    
+    def mcd(a, b):
         """
         Calcula el máximo común divisor de dos números.
         
@@ -139,6 +146,39 @@ class Magic:
         Returns:
             int: El máximo común divisor de a y b
         """
+        lista_divisores_a=[]
+        lista_divisores_b=[]
+        for i in range(1,a+1):
+            if a % i == 0:
+                lista_divisores_a.append(i)
+        
+        for i in range(1,b+1):
+            if b % i == 0:
+                lista_divisores_b.append(i)
+
+        for j in lista_divisores_a:
+             for h in lista_divisores_b:
+                  if j == h:
+                       maximo_c_divisor=j
+
+                  
+
+
+
+        print(lista_divisores_a)
+        print(lista_divisores_b)
+        print(maximo_c_divisor)
+
+
+        
+
+
+
+
+        
+        
+
+
         
     
     def mcm(self, a, b):
@@ -152,9 +192,19 @@ class Magic:
         Returns:
             int: El mínimo común múltiplo de a y b
         """
+
         
+        multiplo= max(a,b)
+        while True:
+            if multiplo % a == 0 and multiplo % b ==0:
+                minimo_c_multiplo= multiplo
+                break
+            else:
+                multiplo+=multiplo
+
+        print (minimo_c_multiplo)        
     
-    def suma_digitos(self, n):
+    def suma_digitos(n):
         """
         Calcula la suma de los dígitos de un número.
         
@@ -164,7 +214,18 @@ class Magic:
         Returns:
             int: La suma de los dígitos de n
         """
+
+        lista=[]
         
+        for n in str(n):
+            lista.append(int(n))
+        suma=0
+        print(lista)
+        for numeros in range(0,len(lista)):
+            suma=suma+lista[numeros]
+            print(suma)
+        print(suma)
+
     
     def es_numero_armstrong(self, n):
         """
@@ -176,7 +237,22 @@ class Magic:
         Returns:
             bool: True si n es un número de Armstrong, False en caso contrario
         """
-        digitos = str(n)
+        lista=[]
+        
+        for digito in str(n):
+            lista.append(int(digito))
+        suma=0
+        print(lista)
+        for numeros in range(0,len(lista)):
+            suma=suma+lista[numeros]**3
+            
+        if n == suma:
+            print("si es numero anmstrong",suma)
+        else:
+            print("no es numero anmstrong",suma)
+             
+        
+        
         
     
     def es_cuadrado_magico(self, matriz):
@@ -190,3 +266,4 @@ class Magic:
             bool: True si es un cuadrado mágico, False en caso contrario
         """
         
+
