@@ -1,6 +1,7 @@
 class Conversion:
-    def celsius_a_fahrenheit(self, celsius):
+    def celsius_a_fahrenheit(celsius):
         farenheit= (celsius * 9/5)+32
+        print(farenheit)
         return farenheit
 
 
@@ -265,7 +266,7 @@ class Conversion:
 
         return texto
 
-        
+    celsius_a_fahrenheit(389)
 
     """
     Convierte código Morse a texto.
