@@ -81,9 +81,27 @@ class Conversion:
         """
         
     
-    def decimal_a_binario(self, decimal):
-        Binario=bin(decimal)
-        return Binario
+    def decimal_a_binario(decimal):
+        #Binario=bin(decimal)
+        #return Binario
+        coeficiente=None 
+        binario=""
+        while  coeficiente != 0:
+            coeficiente=decimal // 2
+            resto=decimal % 2
+            binario= str(resto) + binario
+            decimal=coeficiente
+            
+        
+
+        print("numero binario:"+binario)
+
+            
+
+
+
+
+    
         """
         Convierte un número decimal a su representación binaria.
         
@@ -98,7 +116,7 @@ class Conversion:
             decimal_a_binario(255) -> "11111111"
         """
         
-    def binario_a_decimal(self, binario):
+    def binario_a_decimal(binario):
         """
         Convierte un número binario a decimal.
         
@@ -112,9 +130,19 @@ class Conversion:
             binario_a_decimal("1010") -> 10
             binario_a_decimal("11111111") -> 255
         """
+        
+        i=0
+        decimal=0
+        for recorrido in range(len(binario)-1,-1,-1):
+            if binario[recorrido]=="1": 
+                conversion=2**i
+                decimal=decimal+conversion
+            i=i+1
 
-        decimal = int(binario, 2)
-        return decimal
+        print(decimal)
+
+            
+
         
     
     def decimal_a_romano(self, numero):
@@ -282,3 +310,7 @@ class Conversion:
     morse_a_texto(".... . .-.. .-.. ---") -> "HELLO"
     """
     
+
+
+    #decimal_a_binario(134)
+    binario_a_decimal("1001")

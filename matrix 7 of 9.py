@@ -4,7 +4,18 @@ class Matrix:
     Incluye operaciones aritméticas, propiedades y transformaciones matriciales.
     """
 
-    def suma_matrices(self, A, B):
+    def suma_matrices( A, B):
+        c=[[None,None],[None,None]]
+        for i in range(len(A)):
+            
+            for j in range(len(B)):
+                c[i][j]=A[i][j]+B[i][j]
+
+        print(c)
+
+
+
+
         """
         Suma dos matrices elemento a elemento.
 
@@ -24,7 +35,15 @@ class Matrix:
         
 
     def resta_matrices(self, A, B):
+        c=[[None,None],[None,None]]
+        for i in range(len(A)):
+                    
+            for j in range(len(B)):
+                c[i][j]=A[i][j]-B[i][j]
+        
+                print(c)
         """
+
         Resta dos matrices elemento a elemento (A - B).
 
         Args:
@@ -42,7 +61,23 @@ class Matrix:
         """
         
 
-    def multiplicar_matrices(self, A, B):
+    def multiplicar_matrices(A, B):
+        filas_A = len(A)
+        columnas_A = len(A[0])
+        columnas_B = len(B[0])
+
+        # Crear la matriz C con ceros de tamaño (filas_A x columnas_B)
+        C = [[0 for _ in range(columnas_B)] for _ in range(filas_A)]
+
+        for i in range(filas_A):
+            for j in range(columnas_B):
+                suma = 0
+                for k in range(columnas_A):  # o len(B), que es igual
+                    suma += A[i][k] * B[k][j]
+                C[i][j] = suma
+
+        return C
+
         """
         Multiplica dos matrices usando la multiplicación matricial estándar.
         El número de columnas de A debe ser igual al número de filas de B.
@@ -62,7 +97,24 @@ class Matrix:
         """
         
 
-    def multiplicar_escalar(self, matriz, escalar):
+    def multiplicar_escalar(matriz, escalar):
+        filas_matriz=len(matriz)
+        columnas_matriz=len(matriz[0])
+
+        C=[[0 for _ in range(filas_matriz)] for _ in range(columnas_matriz)]
+
+        for i in range(filas_matriz):
+
+            for j in range(columnas_matriz):      
+                    C[i][j]=matriz[i][j]*escalar
+
+        print(C)
+            
+
+
+
+
+
         """
         Multiplica cada elemento de la matriz por un escalar.
 
@@ -269,4 +321,4 @@ class Matrix:
             buscar_en_matriz([[1, 2, 3], [4, 2, 6], [7, 8, 2]], 2) -> [(0, 1), (1, 1), (2, 2)]
             buscar_en_matriz([[1, 2], [3, 4]], 9) -> []
         """
-        
+    multiplicar_escalar([[1, 2], [3, 4]], 3)

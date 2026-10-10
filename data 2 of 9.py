@@ -29,7 +29,12 @@ class Data:
         for i in range(len(lista)):
             if lista[i] ==elemento:
                 return i
+
+    
+        
         print("elemento no encontrado")
+        return -1
+        
         
         
         """
@@ -98,15 +103,14 @@ class Data:
         """
     
     
-    def rotar_lista(self, lista, k):
-        repeticiones=k%len(lista)
+    def rotar_lista(lista, k):
+        nueva_lista=lista[-k:]+lista[:-k]
 
-        list_to_add=[0]*repeticiones
+        for i in nueva_lista:
+            print(i)
+
+
         
-        for i in list_to_add:
-            lista.insert(0,lista.pop())
-            
-        return lista
         
         "[1,2,3,4,5]"
         "lista[-2:] → [4,5]   # últimos k"
@@ -280,4 +284,6 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        
+
+
+    rotar_lista([1,2,3,4,5],5)
